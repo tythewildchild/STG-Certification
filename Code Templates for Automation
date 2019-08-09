@@ -1,0 +1,29 @@
+//Here is a template that I include at the beginning of my code: 
+require('chromedriver');
+var webdriver = require('selenium-webdriver');
+var assert = require("chai").assert;
+let By = webdriver.By;
+let Key = webdriver.Key;
+let until = webdriver.until;
+
+describe("This is the top level", function(){ 
+
+  //This executes before each function
+  before(function(){
+    driver = new webdriver.Builder()
+    .withCapabilities(webdriver.Capabilities.chrome())
+    .build();
+  });
+  
+  
+  //this will close the testing browser when done
+  after (function(){
+    return driver.quit();
+  });
+
+  //Each of the 'it' cases are tests
+  it("This is a test that will open the browser for copart.com", function(){
+    return driver.get("https://www.cpart.com");
+    });
+
+});
